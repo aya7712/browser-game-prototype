@@ -1,0 +1,10 @@
+{
+    "rules": {
+        "color-no-hex": [true, {
+            "message": "色は public/style.css の :root トークン var(--color-*) を参照する。#hex の直書き禁止。詳細 → .claude/rules/css.md"
+        }],
+        "function-disallowed-list": [["rgb", "rgba"], {
+            "message": "rgb()/rgba() の直書き禁止。:root にトークンを定義して var(--...) で参照する。詳細 → .claude/rules/css.md"
+        }]
+    }
+}
