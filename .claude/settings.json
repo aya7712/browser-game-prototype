@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=$(node -e 'let d=\"\";process.stdin.on(\"data\",c=>d+=c).on(\"end\",()=>{try{const j=JSON.parse(d);process.stdout.write((j.tool_input&&j.tool_input.file_path)||(j.tool_response&&j.tool_response.filePath)||\"\")}catch(e){}})'); case \"$f\" in *.css|*.tsx) npm run --silent lint >&2 || exit 2 ;; esac",
+            "timeout": 120,
+            "statusMessage": "Running lint (eslint + stylelint)..."
+          }
+        ]
+      }
+    ]
+  }
+}
